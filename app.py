@@ -39,7 +39,7 @@ def webhook():
         
         # Claude AI 답변 생성
         message = client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model="claude-sonnet-4-6",
             max_tokens=500,
             system=SYSTEM_PROMPT,
             messages=[{"role": "user", "content": user_message}]
@@ -82,6 +82,10 @@ def kakao_response(text):
             ]
         }
     }
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
